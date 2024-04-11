@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/mobile.css" />
+    <title>poke api</title>
+  </head>
+  <body>
+    <main class="site-wrapper">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-header">POKE API</h1>
+            <p class="hero-p">
+              Create your very own favorites list of Pokemon! <br />
+              With over <span id="totalPokemonCount">N/A</span> unique monsters and
+              <span id="totalLegendaryCount">N/A</span> iconic legendaries, theres a Pokemon for everyone!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="favorites">
+        <div class="container">
+          <div class="title">
+            <h1>FAVORITES</h1>
+            <button class="btn srt-btn" id="favsSortButton" data-order="desc">A-Z</button>
+          </div>
+          <div class="data-container" id="favsContainer"></div>
+        </div>
+      </section>
+
+      <section class="pokemon-data">
+        <div class="container">
+          <div class="title">
+            <h1>POKEMON</h1>
+            <button class="btn srt-btn" id="mainSortButton" data-order="desc">A-Z</button>
+          </div>
+          <div class="data-container" id="pokemonContainer"></div>
+        </div>
+      </section>
+    </main>
+
+    <a href="#" class="toTop">↑</a>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
