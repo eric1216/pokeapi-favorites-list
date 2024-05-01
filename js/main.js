@@ -1,4 +1,4 @@
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=30&offset=463';
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=107&offset=386';
 
 const pokemonContainer = document.getElementById('pokemonContainer');
 const favsContainer = document.getElementById('favsContainer');
@@ -138,19 +138,23 @@ fetchData(url)
 
 // function to add/remove card from favorites list
 const addRemoveFavorite = (e) => {
+  const heart = 'fa-heart';
+  const crack = 'fa-heart-crack';
+
   const card = e.currentTarget;
   const id = card.getAttribute('data-id');
-  const heartIcon = card.querySelector('i.fa-heart');
+  const heartIcon = card.querySelector(`i.${heart}`);
+  const heartCrackIcon = card.querySelector(`i.${crack}`);
 
-  const params = heartIcon
-    ? [favsContainer, 'fa-heart', 'fa-heart-crack']
-    : [pokemonContainer, 'fa-heart-crack', 'fa-heart'];
-
-  params[0].appendChild(card);
-  heartIcon.classList.remove(params[1]);
-  heartIcon.classList.add(params[2]);
-
-  heartIcon ? addToLocalStorage(id) : removeFromLocalStorage(id);
+  if (heartIcon) {
+    favsContainer.appendChild(card);
+    heartIcon.classList.replace(heart, crack);
+    addToLocalStorage(id);
+  } else if (heartCrackIcon) {
+    pokemonContainer.appendChild(card);
+    heartCrackIcon.classList.replace(crack, heart);
+    removeFromLocalStorage(id);
+  }
 };
 
 const sortCallback = (sortOrder) => (a, b) => {
